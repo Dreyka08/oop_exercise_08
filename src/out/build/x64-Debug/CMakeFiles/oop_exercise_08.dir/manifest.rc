@@ -1,0 +1,2 @@
+#pragma code_page(65001)
+1 /* CREATEPROCESS_MANIFEST_RESOURCE_ID */ 24 /* RT_MANIFEST */ "C:/Users/Dreyka/source/repos/oop_exercise_08/src/out/build/x64-Debug/CMakeFiles/oop_exercise_08.dir/embed.manifest"

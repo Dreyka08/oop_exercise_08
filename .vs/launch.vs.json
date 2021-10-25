@@ -1,0 +1,19 @@
+{
+  "version": "0.2.1",
+  "defaults": {},
+  "configurations": [
+    {
+      "type": "default",
+      "project": "src\\CMakeLists.txt",
+      "projectTarget": "oop_exercise_08.exe",
+      "name": "oop_exercise_08.exe",
+      "args": "3"
+    },
+    {
+      "type": "default",
+      "project": "src\\main.cpp",
+      "projectTarget": "",
+      "name": "main.cpp"
+    }
+  ]
+}

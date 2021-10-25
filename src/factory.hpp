@@ -3,56 +3,49 @@
 
 #include <memory>
 
-#include "rectangle.hpp"
-#include "square.hpp"
-#include "trapeze.hpp"
+#include "romb.hpp"
+#include "pentagon.hpp"
+#include "gexagon.hpp"
 
 template<class T, class FIGURE>
 class TFactory;
 
 template<class T>
-class TFactory< T, TSquare<T> > {
+class TFactory< T, TRomb<T> > {
 public:
 	static std::shared_ptr<IFigure> CreateFigure() {
 		std::pair<T, T> curCords;
-		T curSide;
-		// std::cout << "Input square as follows: x y a" << std::endl;
-		// std::cout << "x, y is a left bottom corner cords" << std::endl;
-		// std::cout << "a is square side" << std::endl;
-		std::cin >> curCords.first >> curCords.second >> curSide;
-		TSquare<T>* sq = new TSquare<T>(curCords, curSide);
-		return std::shared_ptr<IFigure>(sq);
+		T d1, d2;
+		std::cin >> curCords.first >> curCords.second >> d1 >> d2;
+		TRomb<T>* RB = new TRomb<T>(curCords, d1, d2);
+		return std::shared_ptr<IFigure>(RB);
 	}
 };
 
 template<class T>
-class TFactory< T, TRectangle<T> > {
+class TFactory< T, TPentagon<T> > {
 public:
 	static std::shared_ptr<IFigure> CreateFigure() {
 		std::pair<T, T> curCords;
-		T curHeight, curWidth;
-		// std::cout << "Input rectangle as follows: x y a b" << std::endl;
-		// std::cout << "x, y is a left bottom corner cords" << std::endl;
-		// std::cout << "a and b are width and heigth" << std::endl;
-		std::cin >> curCords.first >> curCords.second >> curHeight >> curWidth;
-		TRectangle<T>* rect = new TRectangle<T>(curCords, curHeight, curWidth);
-		return std::shared_ptr<IFigure>(rect);
+		T side;
+
+		std::cin >> curCords.first >> curCords.second >> side;
+		TPentagon<T>* pent = new TPentagon<T>(curCords, side);
+		return std::shared_ptr<IFigure>(pent);
 	}
 };
 
 template<class T>
-class TFactory< T, TTrapeze<T> > {
+class TFactory< T, TGexagon<T> > {
 public:
 	static std::shared_ptr<IFigure> CreateFigure() {
 		std::pair<T, T> curCords;
-		T curGreaterBase, curSmallerBase, curHeight;
-		// std::cout << "Input trapeze as follows: x y a b c" << std::endl;
-		// std::cout << "x, y is a left bottom corner cords" << std::endl;
-		// std::cout << "a, b and c are larger, smaller base and height" << std::endl;
-		std::cin >> curCords.first >> curCords.second >> curGreaterBase >> curSmallerBase >> curHeight;
-		TTrapeze<T>* trap = new TTrapeze<T>(curCords, curGreaterBase, curSmallerBase, curHeight);
-		return std::shared_ptr<IFigure>(trap);
+		T side;
+		std::cin >> curCords.first >> curCords.second >> side;
+		TGexagon<T>* gex = new TGexagon<T>(curCords, side);
+		return std::shared_ptr<IFigure>(gex);
 	}
 };
+
 
 #endif /* FACTORY_HPP */
